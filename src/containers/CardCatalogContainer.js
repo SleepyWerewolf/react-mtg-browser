@@ -1,10 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { fetchCardById } from '../actions';
+import CardCatalog from '../components/CardCatalog';
 
-const CardCatalogContainer = () => (
-  <div className='CardCatalog'>
-    Card Catalog Container
-  </div>
-);
+const mapStateToProps = state => {
+  const { card, isFetchingData } = state;
+
+  return {
+    card,
+    isFetchingData
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onComponentDidMount() {
+      dispatch(fetchCardById(10));
+    }
+  };
+};
+
+const CardCatalogContainer = connect(mapStateToProps, mapDispatchToProps)(CardCatalog);
 
 export default CardCatalogContainer;
