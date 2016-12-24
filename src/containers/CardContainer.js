@@ -4,11 +4,12 @@ import CardCatalog from '../components/CardCatalog';
 
 const mapStateToProps = (state, props) => {
   const { selectedCard, isFetchingData } = state;
+  const { params: { id } } = props;
 
   return {
     selectedCard,
     isFetchingData,
-    cardId: props.params.id
+    cardId: id
   };
 };
 
