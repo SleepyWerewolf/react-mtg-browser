@@ -28,7 +28,7 @@ const error = (state = {}, action) => {
         };
       }
 
-      break;
+      return state;
     default:
       return state;
   }
@@ -38,6 +38,8 @@ const errors = (state = [], action) => {
   switch (action.type) {
     case FETCH_CARD_BY_ID_FAIL:
       return [...state, error({}, action)];
+    case ACKNOWLEDGE_ERROR:
+      return state.map(item => error(item, action));
     default:
       return state;
   }

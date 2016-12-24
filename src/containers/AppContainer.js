@@ -1,7 +1,29 @@
-import React from 'react';
+import { connect } from 'redux';
+import { FETCH_CARD_BY_ID_FAIL } from '../actions';
+import App from '../components/App';
 
-const AppContainer = ({ children }) => (
-  <div className='App'>App{children}</div>
-);
+const mapStateToProps = state => {
+  const { errors } = state;
 
-export default AppContainer;
+  return {
+    errors
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    on
+  }
+};
+
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export const AppContainer;
+
+// import React from 'react';
+//
+// const AppContainer = ({ children }) => (
+//   <div className='App'>App{children}</div>
+// );
+//
+// export default AppContainer;

@@ -3,10 +3,10 @@ export const FETCH_CARD_BY_ID_SUCCESS = 'FETCH_CARD_BY_ID_SUCCESS';
 export const FETCH_CARD_BY_ID_FAIL = 'FETCH_CARD_BY_ID_FAIL';
 export const ACKNOWLEDGE_ERROR = 'ACKNOWLEDGE_ERROR';
 
-export const acknowledgeError = errorId => {
+export const acknowledgeError = id => {
   return {
     type: ACKNOWLEDGE_ERROR,
-    errorId
+    id
   };
 };
 
