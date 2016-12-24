@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Router, Route, browserHistory } from 'react-router';
+import { IndexRedirect, Redirect, Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import CardCatalogContainer from '../containers/CardCatalogContainer';
 import CardContainer from '../containers/CardContainer';
@@ -22,3 +22,11 @@ Root.propTypes = {
 };
 
 export default Root;
+
+// <Router history={browserHistory}>
+//   <Route path='/' component={App}>
+//     <IndexRedirect to='/catalog' />
+//     <Route path='catalog' component={CardCatalogContainer} />
+//     <Route path='card' component={}
+//   </Route>
+// </Router>

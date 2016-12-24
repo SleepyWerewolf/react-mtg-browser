@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { fetchCardById } from '../actions';
-import CardCatalog from '../components/CardCatalog';
+import Card from '../components/Card';
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state, ownProps) => {
   const { selectedCard, isFetchingData } = state;
-  const { params: { id } } = props;
+  const { params: { id } } = ownProps;
 
   return {
     selectedCard,
@@ -21,6 +21,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const CardCatalogContainer = connect(mapStateToProps, mapDispatchToProps)(CardCatalog);
+const CardContainer = connect(mapStateToProps, mapDispatchToProps)(Card);
 
-export default CardCatalogContainer;
+export default CardContainer;
