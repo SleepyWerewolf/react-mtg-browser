@@ -5,6 +5,32 @@ import {
   FETCH_CARD_BY_ID_FAIL
 } from './actions';
 
+let errorId = 0;
+
+const error = (state = {}, action) => {
+  switch (action.type) {
+    case FETCH_CARD_BY_ID_FAIL:
+      const { error } = action;
+      return {
+        ...state,
+        ...error,
+        isAcknowledged: false,
+        id: errorId++
+      };
+    default:
+      return state;
+  }
+};
+
+const errors = (state = [], action) => {
+  switch (action.type) {
+    case FETCH_CARD_BY_ID_FAIL:
+      return [...state, error({}, action)];
+    default:
+      return state;
+  }
+};
+
 const selectedCard = (state = {}, action) => {
   switch (action.type) {
     case FETCH_CARD_BY_ID_SUCCESS:
@@ -29,6 +55,7 @@ const isFetchingData = (state = false, action) => {
 const rootReducer = combineReducers({
   selectedCard,
   isFetchingData,
+  errors
 });
 
 export default rootReducer;

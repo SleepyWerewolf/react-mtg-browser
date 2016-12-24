@@ -9,7 +9,15 @@ class Card extends Component {
   }
 
   render() {
-    const { selectedCard, isFetchingData } = this.props;
+    const { selectedCard, isFetchingData, errors } = this.props;
+
+    // if (errors) {
+    //   return (
+    //     <div className="errors">
+    //       {errors.map(error => <div key={error.id}>{error.message}</div>)}
+    //     </div>
+    //   );
+    // }
 
     if (isFetchingData) {
       return(
