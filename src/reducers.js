@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 import {
+  ACKNOWLEDGE_ERROR,
   FETCH_CARD_BY_ID_REQUEST,
   FETCH_CARD_BY_ID_SUCCESS,
-  FETCH_CARD_BY_ID_FAIL
+  FETCH_CARD_BY_ID_FAIL,
 } from './actions';
 
 let errorId = 0;
@@ -17,6 +18,17 @@ const error = (state = {}, action) => {
         isAcknowledged: false,
         id: errorId++
       };
+    case ACKNOWLEDGE_ERROR:
+      const { id } = action;
+
+      if (state.id === id) {
+        return {
+          ...state,
+          isAcknowledged: true
+        };
+      }
+
+      break;
     default:
       return state;
   }
