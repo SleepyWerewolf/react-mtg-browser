@@ -5,7 +5,7 @@ import {
   FETCH_CARD_BY_ID_FAIL
 } from './actions';
 
-const card = (state = {}, action) => {
+const selectedCard = (state = {}, action) => {
   switch (action.type) {
     case FETCH_CARD_BY_ID_SUCCESS:
       return action.data.card;
@@ -27,7 +27,7 @@ const isFetchingData = (state = false, action) => {
 }
 
 const rootReducer = combineReducers({
-  card,
+  selectedCard,
   isFetchingData,
 });
 

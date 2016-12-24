@@ -19,7 +19,7 @@ function* fetchCardById(cardId) {
   } catch (e) {
     yield put({
       type: FETCH_CARD_BY_ID_FAIL,
-      message: e.message
+      error: e
     });
   }
 }
