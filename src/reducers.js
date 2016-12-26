@@ -4,9 +4,11 @@ import {
   FETCH_CARD_BY_ID_REQUEST,
   FETCH_CARD_BY_ID_SUCCESS,
   FETCH_CARD_BY_ID_FAIL,
+  ADD_CATALOG_ROW,
+  FETCH_CARD_SET_TITLES_SUCCESS
 } from './actions';
 
-let errorId = 0;
+let currentErrorId = 0;
 
 const error = (state = {}, action) => {
   switch (action.type) {
@@ -16,12 +18,12 @@ const error = (state = {}, action) => {
         ...state,
         ...error,
         isAcknowledged: false,
-        id: errorId++
+        id: currentErrorId++
       };
     case ACKNOWLEDGE_ERROR:
-      const { id } = action;
+      const { errorId } = action;
 
-      if (state.id === id) {
+      if (state.id === errorId) {
         return {
           ...state,
           isAcknowledged: true
@@ -54,6 +56,43 @@ const selectedCard = (state = {}, action) => {
   }
 };
 
+const cardSetTitles = (state = [], action) => {
+  switch (action.type) {
+    case FETCH_CARD_SET_TITLES_SUCCESS:
+      return [
+        ...state,
+        ...action.data.sets
+      ];
+    default:
+      return state;
+  }
+};
+//
+// const cardSets = (state = [], action) => {
+//   switch (action.type)
+// };
+//
+// const catalogRow = (state = (), action) => {
+//   switch (action.type) {
+//     case ADD_CATALOG_ROW:
+//       return {
+//
+//       }
+//   }
+// };
+
+// const catalog = (state = {}, action) => {
+//   switch (action.type) {
+//     case ADD_CATALOG_ROW:
+//       return {
+//         ...state,
+//         catalogRow(state = {}, action)
+//       };
+//     default:
+//       return state;
+//   }
+// };
+
 const isFetchingData = (state = false, action) => {
   switch (action.type) {
     case FETCH_CARD_BY_ID_REQUEST:
@@ -69,7 +108,8 @@ const isFetchingData = (state = false, action) => {
 const rootReducer = combineReducers({
   selectedCard,
   isFetchingData,
-  errors
+  errors,
+  cardSetTitles
 });
 
 export default rootReducer;

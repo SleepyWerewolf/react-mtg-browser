@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import createLogger from 'redux-logger';
 import rootReducer from './reducers';
-import { watchFetchCardById } from './sagas';
+import { watchFetchCardById, watchFetchCardSetTitles } from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const loggerMiddleware = createLogger();
@@ -12,7 +12,8 @@ const configureStore = () => {
     loggerMiddleware
   ));
 
-  sagaMiddleware.run(watchFetchCardById);
+  //sagaMiddleware.run(watchFetchCardById);
+  sagaMiddleware.run(watchFetchCardSetTitles);
   return store;
 }
 

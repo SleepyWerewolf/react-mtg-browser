@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import { fetchCardById } from '../actions';
+import { fetchCardSetTitles } from '../actions';
 import CardCatalog from '../components/CardCatalog';
 
 const mapStateToProps = state => {
-  const { card, isFetchingData } = state;
-
+  const { cardSetTitles, isFetchingData } = state;
   return {
-    card,
+    cardSetTitles,
     isFetchingData
   };
 };
@@ -14,7 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onComponentDidMount() {
-      dispatch(fetchCardById(10));
+      dispatch(fetchCardSetTitles());
     }
   };
 };
