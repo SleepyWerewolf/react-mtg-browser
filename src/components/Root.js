@@ -2,6 +2,7 @@ import React from 'react';
 import { IndexRedirect, Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import App from '../components/App';
+import AppContainer from '../containers/AppContainer';
 import CardCatalogContainer from '../containers/CardCatalogContainer';
 import CardContainer from '../containers/CardContainer';
 
@@ -10,7 +11,7 @@ const { PropTypes } = React;
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path='/' component={App}>
+      <Route path='/' component={AppContainer}>
         <IndexRedirect to='/catalog' />
         <Route path='/catalog' component={CardCatalogContainer} />
         <Route path='/card/:id' component={CardContainer} />

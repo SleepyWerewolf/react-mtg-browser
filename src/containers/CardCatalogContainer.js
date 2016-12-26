@@ -10,12 +10,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onComponentDidMount() {
-      dispatch(fetchCardSetTitles());
-    }
-  };
+const mapDispatchToProps = () => {
+  return {};
 };
 
 const CardCatalogContainer = connect(mapStateToProps, mapDispatchToProps)(CardCatalog);
