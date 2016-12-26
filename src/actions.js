@@ -6,9 +6,9 @@ export const FETCH_CARD_BY_ID_FAIL = 'FETCH_CARD_BY_ID_FAIL';
 export const FETCH_SET_BY_NAME_REQUEST = 'FETCH_SET_BY_NAME_REQUEST';
 export const FETCH_SET_BY_NAME_REQUEST_SUCCESS = 'FETCH_SET_BY_NAME_REQUEST_SUCCESS';
 export const FETCH_SET_BY_NAME_REQUEST_FAIL = 'FETCH_SET_BY_NAME_REQUEST_FAIL';
-export const FETCH_CARD_SET_TITLES_REQUEST = 'FETCH_CARD_SET_TITLES_REQUEST';
-export const FETCH_CARD_SET_TITLES_SUCCESS = 'FETCH_CARD_SET_TITLES_SUCCESS';
-export const FETCH_CARD_SET_TITLES_FAIL = 'FETCH_CARD_SET_TITLES_FAIL';
+export const FETCH_CARD_SET_NAMES_REQUEST = 'FETCH_CARD_SET_NAMES_REQUEST';
+export const FETCH_CARD_SET_NAMES_SUCCESS = 'FETCH_CARD_SET_NAMES_SUCCESS';
+export const FETCH_CARD_SET_NAMES_FAIL = 'FETCH_CARD_SET_NAMES_FAIL';
 export const REMOVE_CATALOG_ROW = 'REMOVE_CATALOG_ROW';
 
 export const acknowledgeError = errorId => {
@@ -18,22 +18,22 @@ export const acknowledgeError = errorId => {
   };
 };
 
-export const fetchCardSetTitles = () => {
+export const fetchCardSetNames = () => {
   return {
-    type: FETCH_CARD_SET_TITLES_REQUEST
+    type: FETCH_CARD_SET_NAMES_REQUEST
   };
 };
 
-export const fetchCardSetTitlesSuccess = data => {
+export const fetchCardSetNamesSuccess = data => {
   return {
-    type: FETCH_CARD_SET_TITLES_SUCCESS,
+    type: FETCH_CARD_SET_NAMES_SUCCESS,
     data
   };
 };
 
-export const fetchCardSetTitlesFail = error => {
+export const fetchCardSetNamesFail = error => {
   return {
-    type: FETCH_CARD_SET_TITLES_FAIL,
+    type: FETCH_CARD_SET_NAMES_FAIL,
     error
   };
 };

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchCardSetTitles } from '../actions';
+import { fetchCardSetNames } from '../actions';
 import App from '../components/App';
 
 const mapStateToProps = () => {
@@ -9,7 +9,7 @@ const mapStateToProps = () => {
 const mapDispatchToProps = dispatch => {
   return {
     onComponentDidMount() {
-      dispatch(fetchCardSetTitles());
+      dispatch(fetchCardSetNames());
     }
   };
 };
