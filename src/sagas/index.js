@@ -1,6 +1,7 @@
 import { fork } from 'redux-saga/effects';
 import watchFetchCardById from './fetchCardById';
 import watchFetchCardSetTypes from './fetchCardSetTypes';
+import watchFetchMoreCatalogSets from './fetchMoreCatalogSets';
 
 // export function* watchFetchSetByName() {
 //   yield takeLatest(FETCH_SET_BY_NAME_REQUEST, fetchSetByName);
@@ -18,7 +19,8 @@ import watchFetchCardSetTypes from './fetchCardSetTypes';
 function* rootSaga() {
     yield [
         fork(watchFetchCardById),
-        fork(watchFetchCardSetTypes)
+        fork(watchFetchCardSetTypes),
+        fork(watchFetchMoreCatalogSets)
     ];
 }
 
