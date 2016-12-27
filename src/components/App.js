@@ -4,18 +4,6 @@ import ErrorPopUpsContainer from '../containers/ErrorPopUpsContainer';
 
 const { Component } = React;
 
-const Children = ({ children, cardSetTypes }) => {
-  if (cardSetTypes.length > 0) {
-    return (
-      <div>
-        { children }
-      </div>
-    );
-  } else {
-    return null;
-  }
-};
-
 class App extends Component {
   componentDidMount() {
     const { onComponentDidMount } = this.props;
@@ -28,7 +16,9 @@ class App extends Component {
       <div className='App'>
         <Link to='/'>To Home</Link>
         <ErrorPopUpsContainer />
-        <Children children={children} cardSetTypes={cardSetTypes} />
+        {cardSetTypes.length > 0 &&
+          <div>{children}</div>
+        }
       </div>
     )
   }
