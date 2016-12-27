@@ -4,12 +4,28 @@ import { fetchMoreCatalogSets } from '../actions';
 
 const mapStateToProps = state => {
   const { isFetchingData, sets, catalog, cardSetTypes, cards } = state;
+  const rows = [];
+
+  if (catalog.length > 0) {
+    catalog.map(setCode => {
+      const tempCards = [];
+
+      sets[setCode].map(cardId => {
+        tempCards.push(cards[cardId]);
+      });
+
+      rows.push({
+        setCode: setCode,
+        cards: [...tempCards]
+      });
+    });
+  }
+
   return {
     isFetchingData,
-    sets,
-    catalog,
     cardSetTypes,
-    cards
+    rows,
+    catalog
   };
 };
 
