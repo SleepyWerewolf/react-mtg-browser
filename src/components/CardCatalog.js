@@ -21,13 +21,17 @@ class CardCatalog extends Component {
           <div key={row.setCode} className='Catalog__row'>
             <h2>{row.setCode}</h2>
             {row.cards.map(card => {
-              const cardLink = `/card/${card.id}`;
+              const cardLink = `/detail/${card.id}`;
 
               return (
                 <div key={card.id} className='Catalog__card'>
                   {card.name} - {card.id}
                   <Link to={cardLink}>
-                    <img src={card.imageUrl} />
+                    {card.imageUrl ? (
+                      <img src={card.imageUrl} />
+                    ) : (
+                      <div>Click Me</div>
+                    )}
                   </Link>
                 </div>
               );

@@ -3,10 +3,13 @@ import React from 'react';
 const { Component } = React;
 
 class Card extends Component {
-  //componentDidMount() {
-    //const { onComponentDidMount, cardId } = this.props;
-    //onComponentDidMount(cardId);
-  //}
+  componentDidMount() {
+    const { onComponentDidMount, id, card } = this.props;
+
+    if (!card) {
+      onComponentDidMount(id);
+    }
+  }
 
   render() {
     const { card, isFetchingData } = this.props;

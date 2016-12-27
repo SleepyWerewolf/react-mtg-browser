@@ -11,7 +11,7 @@ const Root = ({ store }) => (
       <Route path='/' component={AppContainer}>
         <IndexRedirect to='/catalog' />
         <Route path='/catalog' component={CardCatalogContainer} />
-        <Route path='/card/:id' component={CardContainer} />
+        <Route path='/detail/:id' component={CardContainer} />
       </Route>
     </Router>
   </Provider>

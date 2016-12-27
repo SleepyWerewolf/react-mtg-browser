@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     card,
     isFetchingData,
+    id
   };
 };
 

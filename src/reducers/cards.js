@@ -54,6 +54,12 @@ const cards = (state = {}, action) => {
         ...state,
         ...cards
       };
+    case FETCH_CARD_BY_ID_SUCCESS:
+      const { card } = action.data;
+      return {
+        ...state,
+        [card.id]: card
+      };
     default:
       return state;
   }
