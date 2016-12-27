@@ -49,7 +49,7 @@ const cards = (state = {}, action) => {
   switch (action.type) {
     case FETCH_CATALOG_SET_SUCCESS:
       const cards = {};
-      action.data.cards.map(card => cards[card.multiverseid] = card);
+      action.data.cards.map(card => cards[card.id] = card);
       return {
         ...state,
         ...cards
@@ -62,7 +62,7 @@ const cards = (state = {}, action) => {
 const sets = (state = {}, action) => {
   switch (action.type) {
     case FETCH_CATALOG_SET_SUCCESS:
-      const cardIds = action.data.cards.map(card => card.multiverseid);
+      const cardIds = action.data.cards.map(card => card.id);
       return {
         ...state,
         [action.data.setCode]: cardIds

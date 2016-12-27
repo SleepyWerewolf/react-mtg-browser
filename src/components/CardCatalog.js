@@ -13,7 +13,7 @@ class CardCatalog extends Component {
   }
 
   render() {
-    const { rows } = this.props;
+    const { rows, catalog, cardSetTypes, fetchMoreCatalogSets } = this.props;
 
     return(
       <div className="Catalog">
@@ -21,11 +21,11 @@ class CardCatalog extends Component {
           <div key={row.setCode} className='Catalog__row'>
             <h2>{row.setCode}</h2>
             {row.cards.map(card => {
-              const cardLink = `/card/${card.multiverseid}`;
+              const cardLink = `/card/${card.id}`;
 
               return (
-                <div key={card.multiverseid} className='Catalog__card'>
-                  {card.name} - {card.multiverseid}
+                <div key={card.id} className='Catalog__card'>
+                  {card.name} - {card.id}
                   <Link to={cardLink}>
                     <img src={card.imageUrl} />
                   </Link>
@@ -34,6 +34,8 @@ class CardCatalog extends Component {
             })}
           </div>
         ))}
+
+        <button onClick={ () => { fetchMoreCatalogSets(cardSetTypes, catalog.length) } }>Load More Sets</button>
       </div>
     );
   }
