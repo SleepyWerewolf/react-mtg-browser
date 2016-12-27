@@ -3,13 +3,14 @@ import { fetchCardById } from '../actions';
 import Card from '../components/Card';
 
 const mapStateToProps = (state, ownProps) => {
-  const { selectedCard, isFetchingData } = state;
+  const { cards, isFetchingData } = state;
   const { params: { id } } = ownProps;
 
+  const card = cards[id];
+
   return {
-    selectedCard,
+    card,
     isFetchingData,
-    cardId: id
   };
 };
 

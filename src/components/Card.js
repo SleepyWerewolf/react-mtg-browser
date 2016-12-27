@@ -3,24 +3,24 @@ import React from 'react';
 const { Component } = React;
 
 class Card extends Component {
-  componentDidMount() {
-    const { onComponentDidMount, cardId } = this.props;
-    onComponentDidMount(cardId);
-  }
+  //componentDidMount() {
+    //const { onComponentDidMount, cardId } = this.props;
+    //onComponentDidMount(cardId);
+  //}
 
   render() {
-    const { selectedCard, isFetchingData } = this.props;
+    const { card, isFetchingData } = this.props;
 
     if (isFetchingData) {
       return(
         <div>Loading...</div>
       );
-    } else if (selectedCard) {
+    } else if (card) {
       return(
         <div className="Card">
-          {selectedCard.name}<br/>
-          <img role='presentation' src={selectedCard.imageUrl} /><br/>
-          {selectedCard.text}
+          {card.name}<br/>
+          <img role='presentation' src={card.imageUrl} /><br/>
+          {card.text}
         </div>
       );
     } else {

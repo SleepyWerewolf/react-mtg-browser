@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const { Component } = React;
 
@@ -31,14 +32,21 @@ class CardCatalog extends Component {
     return(
       <div className='CardCatalog'>
         {
-          catalog.map(set => (
-            <div key={set}>
-              <h1>{set}</h1>
-              {sets[set].map(cardId => {
+          catalog.map(setCode => (
+            <div key={setCode}>
+              <h1>{setCode}</h1>
+              {sets[setCode].map(cardId => {
                 const card = cards[cardId];
+                const cardLink = `/card/${card.multiverseid}`;
 
                 return (
-                  <div key={card.id}>{card.name}</div>
+                  <div key={card.id}>
+                    {card.name} - {card.multiverseid}
+
+                    <Link to={cardLink}>
+                      <img src={card.imageUrl}/>
+                    </Link>
+                  </div>
                 );
               })}
             </div>
@@ -48,11 +56,5 @@ class CardCatalog extends Component {
     );
   }
 }
-
-// const CardCatalog = ({ cardSetTypes, isFetchingData }) => (
-//   <div className='CardCatalog'>
-//     Hi
-//   </div>
-// );
 
 export default CardCatalog;
