@@ -19,7 +19,7 @@ class Card extends Component {
       return(
         <div className="Card">
           {selectedCard.name}<br/>
-          <img src={selectedCard.imageUrl} /><br/>
+          <img role='presentation' src={selectedCard.imageUrl} /><br/>
           {selectedCard.text}
         </div>
       );

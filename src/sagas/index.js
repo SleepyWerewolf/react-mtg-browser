@@ -15,9 +15,11 @@ import watchFetchCardSetNames from './fetchCardSetNames';
 //   }
 // }
 
-export default function* rootSaga() {
+function* rootSaga() {
     yield [
         fork(watchFetchCardById),
         fork(watchFetchCardSetNames)
     ];
 }
+
+export default rootSaga;

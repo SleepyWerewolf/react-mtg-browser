@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { fetchCardSetNames } from '../actions';
 import CardCatalog from '../components/CardCatalog';
 
 const mapStateToProps = state => {
