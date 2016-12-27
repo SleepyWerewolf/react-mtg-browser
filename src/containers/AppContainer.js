@@ -3,9 +3,9 @@ import { fetchCardSetTypes } from '../actions';
 import App from '../components/App';
 
 const mapStateToProps = state => {
-  const { cardSetTypes } = state;
+  const { setTypes } = state;
   return {
-    cardSetTypes
+    setTypes
   };
 };
 

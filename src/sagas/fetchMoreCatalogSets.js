@@ -17,18 +17,9 @@ function* fetchMoreCatalogSets(action) {
     const originalNumSets = currentNumSets;
     let numSetsFetched = 0;
 
-    // try {
-    //     const data = yield call(mtg.card.where, { set: cardSetTypes[0].code });
-    //     yield put(fetchCatalogSetSuccess({ cards: [ ...data ], setName: cardSetTypes[0].name }));
-    // } catch (e) {
-    //     yield put(fetchCatalogSetFail(e));
-    // }
-
-
     try {
         while (numSetsFetched < numSetsToFetch) {
             const { code } = cardSetTypes[originalNumSets + numSetsFetched++];
-            console.log(`FETCHING ${code}`);
             const data = yield call(mtg.card.where, { set: code });
             yield put(fetchCatalogSetSuccess({ cards: [ ...data ], setCode: code }));
         }

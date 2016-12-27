@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
+import './styles/Catalog.css';
 
 const { Component } = React;
 
-class CardCatalog extends Component {
+class Catalog extends Component {
   componentDidMount() {
-    const { fetchMoreCatalogSets, cardSetTypes, catalog } = this.props;
+    const { fetchMoreCatalogSets, setTypes, catalog } = this.props;
 
     if (catalog.length === 0) {
-      fetchMoreCatalogSets(cardSetTypes, catalog.length);
+      fetchMoreCatalogSets(setTypes, catalog.length);
     }
   }
 
   render() {
-    const { rows, catalog, cardSetTypes, fetchMoreCatalogSets } = this.props;
+    const { rows, catalog, setTypes, fetchMoreCatalogSets } = this.props;
 
     return(
       <div className="Catalog">
@@ -39,10 +40,10 @@ class CardCatalog extends Component {
           </div>
         ))}
 
-        <button onClick={ () => { fetchMoreCatalogSets(cardSetTypes, catalog.length) } }>Load More Sets</button>
+        <button onClick={ () => { fetchMoreCatalogSets(setTypes, catalog.length) } }>Load More Sets</button>
       </div>
     );
   }
 }
 
-export default CardCatalog;
+export default Catalog;

@@ -1,0 +1,7 @@
+.Catalog__row {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}

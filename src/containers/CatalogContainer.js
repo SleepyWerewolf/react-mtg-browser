@@ -1,29 +1,29 @@
 import { connect } from 'react-redux';
-import CardCatalog from '../components/CardCatalog';
+import Catalog from '../components/Catalog';
 import { fetchMoreCatalogSets } from '../actions';
 
 const mapStateToProps = state => {
-  const { isFetchingData, sets, catalog, cardSetTypes, cards } = state;
+  const { isFetchingData, sets, catalog, setTypes, cards } = state;
   const rows = [];
 
   if (catalog.length > 0) {
     catalog.map(setCode => {
-      const tempCards = [];
+      const cardAccumulator = [];
 
       sets[setCode].map(cardId => {
-        tempCards.push(cards[cardId]);
+        cardAccumulator.push(cards[cardId]);
       });
 
       rows.push({
         setCode: setCode,
-        cards: [...tempCards]
+        cards: [...cardAccumulator]
       });
     });
   }
 
   return {
     isFetchingData,
-    cardSetTypes,
+    setTypes,
     rows,
     catalog
   };
@@ -37,6 +37,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const CardCatalogContainer = connect(mapStateToProps, mapDispatchToProps)(CardCatalog);
+const CatalogContainer = connect(mapStateToProps, mapDispatchToProps)(Catalog);
 
-export default CardCatalogContainer;
+export default CatalogContainer;

@@ -11,13 +11,13 @@ class App extends Component {
   }
 
   render() {
-    const { children, cardSetTypes } = this.props;
+    const { children, setTypes } = this.props;
     return (
       <div className='App'>
         <Link to='/'>To Home</Link>
         <ErrorPopUpsContainer />
-        {cardSetTypes.length > 0 &&
-          <div>{children}</div>
+        {setTypes.length > 0 &&
+          <div className='App__body'>{children}</div>
         }
       </div>
     )
