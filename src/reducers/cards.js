@@ -1,9 +1,9 @@
 import {
   FETCH_CARD_BY_ID_SUCCESS,
-  FETCH_CARD_SET_NAMES_SUCCESS,
+  FETCH_CARD_SET_TYPES_SUCCESS,
 } from '../actions';
 
-export const selectedCard = (state = {}, action) => {
+const selectedCard = (state = {}, action) => {
   switch (action.type) {
     case FETCH_CARD_BY_ID_SUCCESS:
       return action.data.card;
@@ -12,9 +12,9 @@ export const selectedCard = (state = {}, action) => {
   }
 };
 
-export const cardSetTitles = (state = [], action) => {
+const cardSetTypes = (state = [], action) => {
   switch (action.type) {
-    case FETCH_CARD_SET_NAMES_SUCCESS:
+    case FETCH_CARD_SET_TYPES_SUCCESS:
       return [
         ...state,
         ...action.data.sets
@@ -23,3 +23,5 @@ export const cardSetTitles = (state = [], action) => {
       return state;
   }
 };
+
+export { selectedCard, cardSetTypes };

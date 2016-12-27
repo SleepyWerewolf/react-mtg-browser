@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import CardCatalog from '../components/CardCatalog';
 
 const mapStateToProps = state => {
-  const { cardSetTitles, isFetchingData } = state;
+  const { cardSetTypes, isFetchingData } = state;
   return {
-    cardSetTitles,
+    cardSetTypes,
     isFetchingData
   };
 };

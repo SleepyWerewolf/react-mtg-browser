@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CardCatalog = ({ cardSetTitles, isFetchingData }) => (
+const CardCatalog = ({ cardSetTypes, isFetchingData }) => (
   <div className='CardCatalog'>
-    {cardSetTitles.map(set => <div key={set.code}>{set.code} - {set.name}</div>)}
+    {cardSetTypes.map(set => <div key={set.code}>{set.code} - {set.name}</div>)}
     {isFetchingData && <div>Loading</div>}
   </div>
 );
