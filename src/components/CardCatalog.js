@@ -12,22 +12,8 @@ class CardCatalog extends Component {
     }
   }
 
-  componentWillReceiveProps() {
-    const { fetchMoreCatalogSets, cardSetTypes, catalog } = this.props;
-
-    //console.log(cardSetTypes.length);
-    if (catalog.length === 0 && cardSetTypes.length > 0) {
-      fetchMoreCatalogSets(cardSetTypes, catalog.length);
-    }
-  }
-
   render() {
-    const { sets, cardSetTypes, fetchMoreCatalogSets, catalog, cards } = this.props;
-
-    // @TODO: Why doesn't this if statement fire in componentWillReceiveProps
-    if (catalog.length === 0 && cardSetTypes.length > 0) {
-      fetchMoreCatalogSets(cardSetTypes, catalog.length);
-    }
+    const { sets, catalog, cards } = this.props;
 
     return(
       <div className='CardCatalog'>
