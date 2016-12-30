@@ -1,7 +1,20 @@
 .Catalog__row {
     display: flex;
-    flex-direction: row;
-    overflow: scroll;
+    flex-flow: row wrap;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
+}
+
+.Catalog__row h2 {
+    flex: 1 100%;
+}
+
+.Catalog__cards {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.Catalog__row .Catalog__card {
+    padding: 0 20px 0 20px;
 }

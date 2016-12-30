@@ -54,4 +54,4 @@ export { cards };
 // }
 
 // Returns array of cards:
-// catalog.map(set => set.map(cardId => cards[cardId]));
+// catalog.map(setName => sets[setName].map(cardId => cards[cardId]));
